@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Test Experiment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .screen {
+            display: none; /* Hide all screens initially */
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .active {
+            display: flex; /* Show only the active screen */
+        }
+        #word-display {
+            font-size: 36px;
+            font-weight: bold;
+            min-height: 60px; /* Ensure space even if word is short */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #recall-input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        #results-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #results-list li {
+            padding: 5px 0;
+        }
+        .condition-info {
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+        <h1>Welcome to the Memory Task</h1>
+        <p>You will see 15 words, one at a time.</p>
+        <p>Try to remember as many as you can.</p>
+        <button id="start-button">Start</button>
+    </div>
+
+    <!-- Word Presentation Screen -->
+    <div id="word-presentation-screen" class="screen">
+        <h2>Memorize the Words</h2>
+        <div id="word-display"></div>
+    </div>
+
+    <!-- Recall Prompt Screen -->
+    <div id="recall-prompt-screen" class="screen">
+        <h2>Recall the Words</h2>
+        <p>Please write down (or type) all the words you remember.</p>
+        <p>Try to remember as many as possible.</p>
+        <p>You have 60 seconds.</p>
+        <input type="text" id="recall-input" placeholder="Type words separated by commas..." autocomplete="off">
+        <button id="submit-recall-button">Submit</button>
+    </div>
+
+    <!-- Thank You Screen -->
+    <div id="thank-you-screen" class="screen">
+        <h2>Thank you for your participation!</h2>
+        <div id="summary-results"></div>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
